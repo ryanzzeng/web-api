@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class PatientSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(PatientSeeder::class);
-        $this->call(QuestionSeeder::class);
+        $num = 10;
+        $patients = factory(App\Patient::class, $num)->create();
     }
 }
