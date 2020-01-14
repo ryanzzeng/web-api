@@ -9,6 +9,7 @@ To get up and running quickly we have configured the project to use the Sqlite d
 You should be able to run the following commands locally and get up and running straight away:
 ```
 touch database/database.sqlite
+cp .env.example .env
 composer install
 php artisan key:generate
 php artisan migrate:fresh --seed
