@@ -4,6 +4,17 @@
   <br>
 </h3>
 
+# Setup
+To get up and running quickly we have configured the project to use the Sqlite database driver.
+You should be able to run the following commands locally and get up and running straight away:
+```
+touch database/database.sqlite
+composer install
+php artisan key:generate
+php artisan migrate:fresh --seed
+php artisan serve --port=8000
+```
+
 # Background
 In this example codebase, we have 2 models: Patient and Question.
 The models are not related to one another currently, however, we want to update the codebase so that a Patient can provide Answers to Questions, expose it via a web API, and store it in the database.
@@ -20,8 +31,6 @@ The models are not related to one another currently, however, we want to update 
 - **Goal**: Ensure that when an answer is created for a question that the the above rules are enforced. 
 
 ### Guidelines
-The codebase has been setup so that a simple SQLite driver can be used, and you may run `php artisan serve` to get up and running quickly.
-
 Unit tests to support your solution would greatly welcomed. 
 If you do not have time, please explain what you would have tested for, and how.
 
