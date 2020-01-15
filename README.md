@@ -1,3 +1,42 @@
+# Ryan's Solution
+## Setup(The same as original setup，just add extra seeder data)
+```
+touch database/database.sqlite
+cp .env.example .env
+composer install
+php artisan key:generate
+php artisan migrate:fresh --seed
+php artisan serve --port=8000
+```
+## API endpoint
+1. Create[POST] or Update[PUT] an patient answer for a question:
+```
+http://127.0.0.1:8000/api/questions
+```
+2. View patient's answers:
+```
+http://127.0.0.1:8000/api/showPatientWithAnswer/{patient_id}
+```
+
+## Testing
+I just added some test due to the time, run test with following commands:
+```$xslt
+vendor/bin/phpunit
+```
+A list of testing should be done :
+1. Return patient's answer with valid patient_id.
+2. Return error with invalid patient_id.
+3. Return success response if add answer action pass all validation.
+4. Return error if the relationship of question and answers does not exist.
+5. Return error if post more than 1 answer for radio or select type question.
+6. Return error if question_id / patient_id / answer_id does not exist.
+
+## Further Improvement
+1. Use config file to manage error response type and context.
+2. Create a model/table for question type(checkbox,select/ratio)
+3. Implement more testing case.
+
+
 <h3 align="center">
   <br>
   <a href="https://www.bigpicturemedical.com"><img src="/public/logo.svg" alt="Big Picture" width="200" height="200px"></a>
@@ -37,3 +76,4 @@ If you do not have time, please explain what you would have tested for, and how.
 
 
 > [bigpicturemedical.com](https://www.bigpicturemedical.com) &nbsp;&middot;&nbsp;
+

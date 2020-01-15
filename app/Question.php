@@ -14,4 +14,20 @@ class Question extends Model
     protected $fillable = [
         'title', 'type',
     ];
+
+    /**
+     * Relationship answers
+     */
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
+
+    public function hasAnswerOf($answer_id)
+    {
+        return $this->answers()
+            ->where('id','=',$answer_id)
+            ->where('question_id', '=', $this->id)
+            ->exists();
+    }
 }

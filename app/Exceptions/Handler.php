@@ -3,10 +3,13 @@
 namespace App\Exceptions;
 
 use Exception;
+use App\Http\Traits\Responding;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
+    use Responding;
     /**
      * A list of the exception types that are not reported.
      *
@@ -42,10 +45,13 @@ class Handler extends ExceptionHandler
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Exception  $exception
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function render($request, Exception $exception)
     {
+        if ($exception){
+            return $this->sendError($exception->getMessage());
+        }
         return parent::render($request, $exception);
     }
 }
