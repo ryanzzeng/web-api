@@ -24,7 +24,8 @@ class UpdateAnswerRequest extends BaseRequest
     public function rules()
     {
         return [
-            //
+            'patient_id' => 'required|integer|exists:patients,id',
+            'answers' => 'required|array|min:1'
         ];
     }
 }
