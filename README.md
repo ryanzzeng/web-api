@@ -32,8 +32,9 @@ A list of testing should be done :
 6. Return error if question_id / patient_id / answer_id does not exist.
 
 ## Further Improvement
+So sorry for this quick solution, if I have more time I will implement following features:
 1. Use config file to manage error response type and context.
-2. Create a model/table for question type(checkbox,select/ratio)
+2. Create a model/table to handle question type(checkbox,select/ratio) and improve the relationship
 3. Implement more testing case.
 
 
